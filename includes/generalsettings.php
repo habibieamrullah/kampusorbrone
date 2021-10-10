@@ -11,6 +11,7 @@ if(isset($_POST["teks-post-terbaru"])){
 	$wftext = esc_sql($_POST["warna-footer-text"]);
 	$sbg = esc_sql($_POST["warna-pencarian"]);
 	$backtotop = esc_sql($_POST["warna-backtotop"]);
+	$alamatkontak = esc_sql($_POST["alamat-kontak"]);
 	
 	update_option("kampusorborne_tpt", $tpt);
 	update_option("kampusorborne_wh", $wh);
@@ -20,6 +21,7 @@ if(isset($_POST["teks-post-terbaru"])){
 	update_option("kampusorborne_wgftext", $wgftext);
 	update_option("kampusorborne_sbg", $sbg);
 	update_option("kampusorborne_backtotop", $backtotop);
+	update_option("kampusorborne_alamatkontak", $alamatkontak);
 	
 	echo "<div style='background-color: green; color: white; font-size: 12px; padding: 10px; display: inline-block;'>Pengaturan berhasil disimpan.</div>";
 }
@@ -54,9 +56,15 @@ if(isset($_POST["teks-post-terbaru"])){
 		
 		<label>Warna Footer</label>
 		<input type="text" name="warna-gfooter" class="colorpicker" value="<?php echo get_option("kampusorborne_wgf") ?>">
+		<br>
 		
 		<label>Warna Teks Footer</label>
 		<input type="text" name="warna-gfooter-text" class="colorpicker" value="<?php echo get_option("kampusorborne_wgftext") ?>">
+		<br>
+		
+		<label>Alamat Kontak</label><br>
+		<textarea name="alamat-kontak"><?php echo get_option("kampusorborne_alamatkontak") ?></textarea>
+		<br>
 		
 	</div>
 	

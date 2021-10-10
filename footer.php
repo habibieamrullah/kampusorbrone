@@ -17,9 +17,13 @@
 					?>
 				</div>
 				<div style="display: table-cell; vertical-align: top;">
-					<div style="border-bottom: 1px solid #eaeaea;">Tags</div>
+					<div style="border-bottom: 1px solid #eaeaea; padding-bottom: 20px; margin-bottom: 20px;">
+						<?php if(is_active_sidebar('kampusorborne_footer')) : ?>
+						<?php dynamic_sidebar('kampusorborne_footer'); ?>
+						<?php endif; ?>
+					</div>
 					<div style="display: table; width: 100%;">
-						<div style="display: table-cell; vertical-align: top;">Address</div>
+						<div style="display: table-cell; vertical-align: top; font-size: 12px;"><?php echo get_option("kampusorborne_alamatkontak") ?></div>
 						<div style="display: table-cell; vertical-align: top; text-align: right;">Social Buttons</div>
 					</div>
 				</div>

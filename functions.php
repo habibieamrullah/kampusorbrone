@@ -46,6 +46,9 @@ function kampusorborne_defaultoptions() {
 	if(!get_option("kampusorborne_backtotop")){
 		update_option("kampusorborne_backtotop", "#212121");
 	}
+	if(!get_option("kampusorborne_alamatkontak")){
+		update_option("kampusorborne_alamatkontak", "Jl. Nama Jalan Nomor xxx");
+	}
 	
     
 }
@@ -71,6 +74,8 @@ add_action( 'after_setup_theme', 'kampusorborne_custom_logo_setup' );
 
 
 
+
+
 //Mengaktifkan menu navigasi header
 function kampusorborne_header_navigation(){
 	register_nav_menu('kampusorborne-headernavigation',__('Header Navigation'));
@@ -80,9 +85,8 @@ add_action('init', 'kampusorborne_header_navigation');
 
 
 
-//Mengaktifkan Sidebar
-//Sidebar widget
-function kampusorborne_custom_widgetarea(){
+//Mengaktifkan Sidebar widget area
+function kampusorborne_rightsidebar_widgetarea(){
 	register_sidebar(array(
 		'name' 			=> 'Sidebar',
 		'id'			=> 'kampusorborne_sidebar',
@@ -93,4 +97,20 @@ function kampusorborne_custom_widgetarea(){
 	));
 }
 
-add_action('widgets_init', 'kampusorborne_custom_widgetarea');
+add_action('widgets_init', 'kampusorborne_rightsidebar_widgetarea');
+
+
+
+//Mengaktifkan Footer widget area
+function kampusorborne_footer_widgetarea(){
+	register_sidebar(array(
+		'name' 			=> 'Footer',
+		'id'			=> 'kampusorborne_footer',
+		'before_widget'	=> '<div class="widget-footer">',
+		'after_widget'	=> '</div>',
+		'before_title' 	=> '<h2>',
+		'after_title'	=> '</h2>',
+	));
+}
+
+add_action('widgets_init', 'kampusorborne_footer_widgetarea');
